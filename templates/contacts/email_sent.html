@@ -1,0 +1,14 @@
+{% extends '../components/layout.html' %}
+
+{% block content %}
+
+<section class="email__send">
+    <article class="email__send__card">
+        <img class="email__send__image" src="/media/img/site/mail-send-line.svg" alt="Image email" width="300">
+        <h1 class="email__send__heading">Votre message a été envoyé avec succès !</h1>
+        <p class="email__send__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio ad officia quia, vero fugiat assumenda fugit,
+            consequatur voluptatibus exercitationem esse saepe labore sapiente soluta.</p>
+        <a class="email__send__link" href="{% url 'home'%}">Retourner à l'accueil</a>
+    </article>
+</section>
+{% endblock %}

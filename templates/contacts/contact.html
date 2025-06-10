@@ -1,0 +1,54 @@
+{% extends '../components/layout.html' %}
+
+{% comment %} {% block content %}
+<p>Pour nous contacter:</p>
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Envoyer">
+</form>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+
+<section class="contact">
+    <article class="contact__article"> 
+    <h2 class="contact__heading">Nous contacter </h2>
+    <p class="contact__p">Notre équipe serait ravie de vous entendre.</p>
+    
+    <form class="contact__form" action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="name">nom : </label>
+            <input name="name" type="text" placeholder="Saisissez votre nom" required autocomplete="off" size="30"
+                autocomplete="off" autofocus>
+        </div>
+        <div>
+            <label for="first_name">prénom :</label>
+            <input name="first_name" type="text" placeholder="Saisissez votre prénom" required autocomplete="off"
+                size="30" autocomplete="off" autofocus>
+        </div>
+        <div>
+            <label for="email_address">email :</label>
+            <input name="email_address" type="email" placeholder="Saisissez votre e-mail" required autocomplete="off">
+        </div>
+        <div>
+            <label for="message">message :</label>
+            <textarea name="message" type="textarea" placeholder="Rédigez votre message" required></textarea>
+        </div>
+        <button type="submit">Envoyer</button>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </form>
+</article>
+<article class="contact__article"> 
+    <img class="contact__image" src="/media/img/site/contact.jpg" alt="contact" witht="" />
+</article>
+</section>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Archivo';
+    src: url('Archivo-SemiBoldItalic.eot');
+    src: url('Archivo-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Archivo-SemiBoldItalic.woff2') format('woff2'),
+        url('Archivo-SemiBoldItalic.woff') format('woff'),
+        url('Archivo-SemiBoldItalic.svg#Archivo-SemiBoldItalic') format('svg');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('Archivo-SemiBold.eot');
+    src: url('Archivo-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Archivo-SemiBold.woff2') format('woff2'),
+        url('Archivo-SemiBold.woff') format('woff'),
+        url('Archivo-SemiBold.svg#Archivo-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+

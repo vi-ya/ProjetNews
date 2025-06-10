@@ -1,0 +1,141 @@
+@use "sass:map";
+@use "../utils/mixins" as um;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+@use "../utils/functions" as f;
+@use "../components/buttons";
+
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: f.rem(32px);
+    background-color: map.get(c.$colors, "neutral-color");
+    width: 50%;
+    margin: 5% auto;
+
+    @include um.responsive(large-screens) {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: f.rem(32px);
+        text-align: left;
+        width: 70%;
+    }
+
+    &__article {
+        @include um.responsive(large-screens) {
+            max-width: 50%;
+        }
+    }
+
+
+    &__heading,
+    &__p {
+        text-align: center;
+        margin-bottom: f.rem(24px);
+
+        @include um.responsive(large-screens) {
+            text-align: left;
+        }
+    }
+
+    &__heading {
+        line-height: f.rem(44px);
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wsb");
+            size: f.rem(map.get(t.$font-size, "font-s4"));
+        }
+
+        color: map.get(c.$colors, "secondary-color");
+    }
+
+    &__p {
+        line-height: f.rem(28px);
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wn");
+            size: f.rem(map.get(t.$font-size, "font-sxl"));
+        }
+
+        color: map.get(c.$colors, "dark-color");
+
+        @include um.responsive(large-screens) {
+            line-height: f.rem(30px);
+            font-size: f.rem(map.get(t.$font-size, "font-sxxl"));
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: f.rem(16px);
+        text-align: left;
+
+        label {
+            line-height: f.rem(20px);
+            text-transform: capitalize;
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wm");
+                size: f.rem(map.get(t.$font-size, "font-ss"));
+            }
+
+            color: map.get(c.$colors, "secondary-color");
+
+            @include um.responsive(large-screens) {}
+        }
+
+        textarea {
+            min-height: 100px;
+        }
+
+        input,
+        textarea {
+            font-family: map-get(map-get(t.$fonts, "roboto"), "family");
+            line-height: f.rem(24px);
+            text-align: center;
+            width: 100%;
+            padding: f.rem(12px);
+            border: f.rem(1px solid #e2e8f0);
+            border-radius: f.rem(6px);
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wn");
+                size: f.rem(map.get(t.$font-size, "font-sl"));
+            }
+
+            color: map.get(c.$colors, "dark-color");
+
+            @include um.responsive(medium-screens) {
+                text-align: left;
+            }
+        }
+
+        button {
+            width: 100%;
+            line-height: f.rem(24px);
+            padding: f.rem(12px);
+            border: none;
+            border-radius: f.rem(5px);
+            @extend %button;
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wm");
+                size: f.rem(map.get(t.$font-size, "font-sl"));
+            }
+        }
+
+    }
+
+    img {
+        display: none;
+
+        @include um.responsive(large-screens) {
+            display: block;
+            border-radius: 10px;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@use "sass:math";
+@use "sass:map";
+@use "../globals/typography" as t;
+
+// Sass recommends using math.div() or calc() instead of /
+// Division is reserved for CSS calculations, such as calc(100% / 3).
+// @function rem($value){
+//     @return $value / map.get(g.$font-size, "font-sb")  * 1rem;
+// }
+
+// Works only if $value is a single number.
+// Does not handle multiple values (such as padding: 72px 0 16px;).
+// @function rem($value) {
+//     @return math.div($value, map.get(t.$font-size, "font-sb")) * 1rem;
+// }
+
+
+//function to manage multiple values.
+@function rem($values...) { // the function can take several values
+    $result: (); // empty list to store values converted to rem
+  
+    @each $value in $values {
+      @if $value == 0 or type-of($value) != "number" or unit($value) != "px" {  //   If the value is 0, we keep it as is. If the value is not a number (e.g. auto, %), it is not converted.  If the value is not in pixels, we don't touch it.
+        $result: append($result, $value); // Add the unconverted value to the $result list. Keep values 0 and unit-less
+      } @else { // Otherwise, pixel values are converted to rem rem(32px); // 32px ÷ 16px = 2rem
+        $result: append($result, math.div($value, t.$base-font-size) * 1rem); // we add the new converted value to our list
+      }
+    }
+    @return $result; // Returns a list of transformed values
+  }
+
+ 

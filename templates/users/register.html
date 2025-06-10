@@ -1,0 +1,54 @@
+{% extends '../components/layout.html' %}
+
+{% block content %}
+<section class="register">
+    <h2 class="login__heading">Inscription</h2>
+
+    <article class="register__article">
+
+        <!-- Messages Django -->
+        {% if messages %}
+        <ul class="messages_index">
+            {% for message in messages %}
+            {% if message.tags != 'success' %}
+            <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+        {% endif %}
+
+        <!-- Formulaire d'inscription -->
+        <form class="register__form" action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+
+                {% if field.errors %}
+                <ul class="error_index">
+                    {% for error in field.errors %}
+                    <li class="alert alert-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <!-- Erreurs non liées à un champ -->
+            {% if form.non_field_errors %}
+            <ul class="error_index">
+                {% for error in form.non_field_errors %}
+                <li class="alert alert-error">{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <button type="submit">S'inscrire</button>
+        </form>
+    </article>
+</section>
+
+{% endblock %}

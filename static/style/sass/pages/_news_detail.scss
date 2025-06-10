@@ -1,0 +1,138 @@
+@use "sass:map";
+@use "../utils/mixins" as um;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+@use "../utils/functions" as f;
+@use "../components/buttons" as *;
+@use "../globals/decoration" as *;
+
+.news_detail{
+    display: flex;
+    flex-direction: column;
+    margin-top: f.rem(34px);
+    padding: f.rem(1px);
+    margin-bottom: f.rem(40px);
+   
+ 
+    &__heading {
+        margin: f.rem(20px 0);
+        text-align: center;
+        letter-spacing: -.015em;
+        line-height: 1;
+        color: map.get(c.$colors, "secondary-color");
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wb");
+            size: f.rem(map.get(t.$font-size, "font-s3"));
+        }
+
+    }
+    &__card{
+        max-width: 50%;
+        // margin: auto;
+        margin: f.rem(16px auto);
+
+        
+        
+    }
+
+    &__title {
+        margin-top: f.rem(15px);
+        margin-bottom: f.rem(15px);
+        text-align: center;
+        padding-top: f.rem(10px);
+        letter-spacing: -.015em;
+        line-height: 1;
+        color: map.get(c.$colors, "primary-color");
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wb");
+            size: f.rem(map.get(t.$font-size, "font-sxl"));
+        }
+
+        @include um.responsive(medium-screens) {
+            font: {
+                weight: map.get(t.$font-weight, "font-wb");
+                size: f.rem(map.get(t.$font-size, "font-s6"));
+            }
+        }
+    }
+
+    &__section, &__source, &__website {
+    
+        // color: map.get(c.$colors, "primary-color");
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wn");
+            size: f.rem(map.get(t.$font-size, "font-ss"));
+        }
+
+        @include um.responsive(medium-screens) {
+            font: {
+                weight: map.get(t.$font-weight, "font-wn");
+                size: f.rem(map.get(t.$font-size, "font-sm"));
+            }
+        }
+    }
+
+    
+        &__author,
+        &__date {
+        font: {
+            weight: map.get(t.$font-weight, "font-wn");
+            size: f.rem(map.get(t.$font-size, "font-ss"));
+        }
+
+        color: map.get(c.$colors, "secondary-color");
+
+        @include um.responsive(medium-screens) {
+            font: {
+                weight: map.get(t.$font-weight, "font-wn");
+                size: f.rem(map.get(t.$font-size, "font-sm"));
+            }
+        }
+    
+
+    }
+    
+
+    &__description {
+            margin-top: f.rem(12px);
+            letter-spacing: .005em;
+            line-height: 1.4;
+            text-align: justify;
+            margin-bottom: f.rem(12px);
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wn");
+                size: f.rem(map.get(t.$font-size, "font-sl"));
+            }
+
+            color: map.get(c.$colors, "secondary-color");
+        
+    }
+
+    &__images{
+
+        img{
+            width: 50%;
+        }
+    }
+    &__link{
+        text-align: center;
+        margin-top: f.rem(25px);
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wsb");
+            size: f.rem(map.get(t.$font-size, "font-sxs"));
+        }
+        
+
+     
+    }
+
+
+
+
+
+}

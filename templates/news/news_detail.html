@@ -1,0 +1,27 @@
+{% extends '../components/layout.html' %}
+{% block content %}
+<section class="news_detail">
+
+    <h1 class="news_detail__heading">News</h1>
+    
+    <article class="news_detail__card" > 
+        
+        <div class="news_detail__images">
+        {% if news.photo %}    
+        <p class="news_detail__image"><img src="{{news.photo.url}}" alt="{{news.name}}"></p>
+        {% else %}
+        <p class="news_detail__image"><img src="/media/img/news/default.jpg" alt="Image par défaut" width="300"></p>
+        {% endif %} 
+    </div>
+        <h2 class="news_detail__title">{{news.title}}</h2>
+        <p class="news_detail__description">{{news.description}}</p>
+        <p class="news_detail__author"> <strong> Auteur : </strong>{{news.author}}</p>
+        <p class="news_detail__source"><strong> Source : </strong>{{news.source}}</p>
+        <p class="news_detail__date"><strong> Date : </strong>{{news.date}}</p>
+        <p class="news_detail__section"><strong> Section : </strong> {{news.section}}</p>
+        <p class="news_detail__website"><strong> Site web : </strong>{{news.website}}</p>
+        <p class="news_detail__link"><a href="{% url 'news'%}">Revenir en arrière</a></p>
+    </article>
+
+</section>
+    {% endblock %}

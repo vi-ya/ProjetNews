@@ -1,0 +1,252 @@
+@use "sass:map";
+@use "../utils/mixins" as um;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+@use "../utils/functions" as f;
+@use "../components/buttons" as *;
+
+.home {
+    display: flex;
+    flex-direction: column;
+    gap: f.rem(16px);
+
+    &__heading__h {
+        text-align: center;
+        color: map.get(c.$colors, "secondary-color");
+        margin-top: f.rem(60px);
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wsb");
+            size: f.rem(map.get(t.$font-size, "font-s4"));
+        }
+
+    }
+
+    &__heading__p {
+        text-align: center;
+        color: map.get(c.$colors, "dark-color");
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wm");
+            size: f.rem(map.get(t.$font-size, "font-sxl"));
+        }
+
+
+    }
+
+    &__top {
+        display: flex;
+        flex-direction: column;
+        gap: f.rem(5px);
+
+        @include um.responsive(medium-screens) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            padding: f.rem(30px 0px);
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        gap: f.rem(16px);
+        width: 100%;
+    }
+
+    &__article {
+        background: map.get(c.$colors, "light-color");
+        padding: f.rem(16px);
+        border-radius: f.rem(8px);
+        box-shadow: 0 f.rem(4px) f.rem(8px) rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: f.rem(8px);
+
+        &__list {
+            @include um.responsive(medium-screens) {
+                display: flex;
+                flex-direction: nowrap;
+                gap: f.rem(30px);
+            }
+
+        }
+
+        &__item {
+            flex: 1 1 100%; // By default, occupies 100% of width on small screens
+            line-height: f.rem(12px);
+
+            @include um.responsive(medium-screens) {
+                flex: 1 1 calc(33.333% - 16px); // Occupies a third of the width on medium and large screens
+            }
+        }
+
+        &--main {
+            width: 100%;
+
+            @include um.responsive(medium-screens) {
+                flex: 0 0 75%;
+
+            }
+
+        }
+
+        &--secondary {
+            width: 100%;
+
+            @include um.responsive(medium-screens) {
+                flex: 0 0 25%;
+
+            }
+        }
+
+        &--filtered {
+            width: 100%;
+        }
+
+        &--newsletter {
+            width: 100%;
+            background-color: map.get(c.$colors, "shadow-color");
+            padding: f.rem(50px 0 50px);
+            margin-bottom: f.rem(16px);
+            @include um.responsive(medium-screens) {
+                padding: f.rem(60px 0px);
+
+            }
+
+            h3 {
+                text-align: center;
+                font-size: f.rem(map.get(t.$font-size, "font-sxxl"));
+
+                @include um.responsive(medium-screens) {
+
+                    font-size: f.rem(map.get(t.$font-size, "font-s5"));
+                }
+
+            }
+
+        }
+
+        &__headline {
+            text-align: left;
+            margin-bottom: f.rem(10px);
+            color: map.get(c.$colors, "secondary-color");
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wsb");
+                size: f.rem(map.get(t.$font-size, "font-sxl"));
+            }
+
+        }
+
+        &__p {
+            color: map.get(c.$colors, "dark-color");
+            margin-top: f.rem(8px);
+            text-align: center;
+            margin-bottom: f.rem(10px);
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wm");
+                size: f.rem(map.get(t.$font-size, "font-sl"));
+            }
+        }
+
+        &__title {
+            color: map.get(c.$colors, "dark-color");
+            margin-bottom: f.rem(10px);
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wb");
+                size: f.rem(map.get(t.$font-size, "font-s6"));
+            }
+
+        }
+
+        &__img {
+            max-width: 100%;
+            height: auto;
+            width: auto;
+            border-radius: f.rem(8px);
+            object-fit: cover;
+          
+        }
+
+
+        &__block {
+            display: flex;
+            gap: f.rem(8px);
+
+            &__author,
+            &__date {
+                font: {
+                    weight: map.get(t.$font-weight, "font-wsm");
+                    size: f.rem(map.get(t.$font-size, "font-ss"));
+                }
+
+                line-height: f.rem(35px);
+                color: map.get(c.$colors, "secondary-color");
+            }
+        }
+
+        &__subtitle {
+            font-weight: map.get(t.$font-weight, "font-wsb");
+            font-size: f.rem(map.get(t.$font-size, "font-sxxl"));
+            color: map.get(c.$colors, "secondary-color");
+            margin-top: f.rem(10px);
+            line-height: f.rem(30px);
+
+            @include um.responsive(medium-screens) {
+                font-size: f.rem(map.get(t.$font-size, "font-sxxl"));
+            }
+        }
+
+        &__description {
+            font-weight: map.get(t.$font-weight, "font-wm");
+            font-size: f.rem(map.get(t.$font-size, "font-sl"));
+            color: map.get(c.$colors, "dark-color");
+            margin-top: f.rem(8px);
+        }
+
+        &__section {
+            font-weight: map.get(t.$font-weight, "font-wm");
+            font-size: f.rem(map.get(t.$font-size, "font-ss"));
+            color: map.get(c.$colors, "secondary-color");
+
+        }
+
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: f.rem(8px);
+            max-width: 80%;
+            margin: auto;
+
+            @include um.responsive(medium-screens) {
+                flex-direction: row;
+                justify-content: center;
+                gap: f.rem(10px);
+            }
+
+            input {
+                padding: f.rem(12px);
+                border-radius: f.rem(5px);
+                border: none;
+                text-align: center;
+            }
+
+            button {
+                padding: f.rem(12px);
+                border: none;
+                border-radius: f.rem(5px);
+                @extend %button;
+
+                font: {
+                    weight: map.get(t.$font-weight, "font-wsb");
+                    size: f.rem(map.get(t.$font-size, "font-ss"));
+                }
+            }
+        }
+    }
+
+}

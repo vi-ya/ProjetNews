@@ -1,0 +1,207 @@
+@use "sass:map";
+@use "../utils/mixins" as um;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+@use "../utils/functions" as f;
+@use "../components/buttons" as *;
+@use "../globals/decoration" as *;
+
+.news {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: f.rem(34px);
+    padding: f.rem(1px);
+
+
+    &__heading {
+        margin: f.rem(20px 0);
+        width: calc(100vw - 32px);
+        text-align: center;
+        letter-spacing: -.015em;
+        line-height: 1;
+        color: map.get(c.$colors, "secondary-color");
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wb");
+            size: f.rem(map.get(t.$font-size, "font-s3"));
+        }
+
+    }
+
+    &__p {
+        margin-top: f.rem(20px);
+        padding: f.rem(20px 0);
+        text-align: center;
+        letter-spacing: -.01em;
+        line-height: 1.25;
+        color: map.get(c.$colors, "secondary-color");
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wm");
+            size: f.rem(map.get(t.$font-size, "font-sxl"));
+        }
+
+        @include um.responsive(large-screens) {
+            text-align: left;
+            width: 100%;
+        }
+    }
+
+    &__top {
+        padding-bottom: f.rem(20px);
+        margin-bottom: f.rem(30px);
+    }
+
+    &__middle {
+        margin-top: f.rem(12px);
+        display: flex;
+        gap: f.rem(16px);
+        width: calc(55vw - 26px);
+
+        @include um.responsive(medium-screens) {
+            width: calc(26vw - 26px);
+        }
+
+    }
+
+    &__card {
+        padding: f.rem(16px);
+        border-radius: f.rem(8px);
+        box-shadow: f.rem(0 20px 37px rgba(0, 0, 0, 0.1));
+
+    }
+
+
+    &__title {
+        width: calc(20vw - 26px);
+        padding-top: f.rem(10px);
+        letter-spacing: -.015em;
+        line-height: 1;
+        color: map.get(c.$colors, "secondary-color");
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wb");
+            size: f.rem(map.get(t.$font-size, "font-sxl"));
+        }
+
+        @include um.responsive(medium-screens) {
+            font: {
+                weight: map.get(t.$font-weight, "font-wb");
+                size: f.rem(map.get(t.$font-size, "font-s6"));
+            }
+        }
+    }
+
+    &__description {
+        display: none;
+
+        @include um.responsive(medium-screens) {
+            display: block;
+            margin-top: f.rem(12px);
+            letter-spacing: .005em;
+            line-height: 1.4;
+            width: calc(50vw - 26px);
+            text-align: justify;
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wn");
+                size: f.rem(map.get(t.$font-size, "font-sl"));
+            }
+
+            color: map.get(c.$colors, "secondary-color");
+        }
+    }
+
+    &__link__admin {
+        display: flex;
+        gap: f.rem(16px);
+        width: calc(95vw - 16px);
+        margin-left: f.rem(15px);
+        margin-bottom: f.rem(20px);
+
+        @include um.responsive(medium-screens) {
+            width: calc(60vw - 26px);
+
+        }
+
+        @include um.responsive(large-screens) {
+            width: calc(65vw - 26px);
+
+        }
+    }
+
+    &__description__link {
+        color: map.get(c.$colors, "emphasis-color");
+    }
+
+
+    &__link,
+    &__description__link {
+        width: calc(55vw - 26px);
+        margin-top: f.rem(16px);
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wsb");
+            size: f.rem(map.get(t.$font-size, "font-sxs"));
+        }
+
+        @include um.responsive(medium-screens) {
+            width: calc(20vw - 26px);
+
+        }
+
+    }
+
+
+    &__section {
+        width: calc(20vw - 32px);
+        margin-top: f.rem(16px);
+        color: map.get(c.$colors, "primary-color");
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wn");
+            size: f.rem(map.get(t.$font-size, "font-sxs"));
+        }
+
+        @include um.responsive(medium-screens) {
+            font: {
+                weight: map.get(t.$font-weight, "font-wb");
+                size: f.rem(map.get(t.$font-size, "font-s6"));
+            }
+        }
+    }
+
+    &__author,
+    &__date {
+        font: {
+            weight: map.get(t.$font-weight, "font-wb");
+            size: f.rem(map.get(t.$font-size, "font-ss"));
+        }
+
+        color: map.get(c.$colors, "secondary-color");
+
+        @include um.responsive(medium-screens) {
+            font: {
+                weight: map.get(t.$font-weight, "font-wb");
+                size: f.rem(map.get(t.$font-size, "font-sm"));
+            }
+        }
+    }
+
+    img {
+        float: right;
+        max-width: 20%;
+        height: auto;
+        width: auto;
+        object-fit: cover;
+
+        @include um.responsive(large-screens) {
+            max-width: 15%;
+        }
+    }
+
+    .clear {
+        clear: both;
+    }
+
+}

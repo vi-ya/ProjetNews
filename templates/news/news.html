@@ -1,0 +1,48 @@
+{% extends '../components/layout.html' %}
+
+{% block content %}
+<section class="news">
+
+    <h1 class="news__heading">News</h1>
+    <p class="news__p">Nous avons {{ news_list|length }} nouvelles à vous proposer :</p>
+
+    <section class="news__top">
+        {% for new in news_list %}
+        <article class="news__card">
+            <ul class="news__article news__article--card">
+
+                {% if new.photo %}
+                <img src="{{new.photo.url}}" alt="{{new.name}}">
+                {% else %}
+                <img src="/media/img/news/default.jpg" alt="Image par défaut" width="300">
+            </ul>
+                {% endif %}
+            <ul>
+                <li class="news__section">{{new.section}}</li>
+                <li class="news__title">{{new.title}}</li>
+
+            </ul>
+            <ul class="news__middle">
+                <li class="news__author">{{new.author}}</li>
+                <li class="news__date">{{new.date}}</li>
+            </ul>
+            <ul>
+                <li class="news__description">{{new.description}}</li>
+                <li class="news__description__link"> <a href="{% url 'news_detail' new.id %}">En savoir plus</a></li>
+            </ul>
+        </article>
+
+        <ul class="news__link__admin">
+            {% if user.is_authenticated %}
+            <li class="news__link"><a href="{% url 'news_update' new.id %}">Modifier</a></li>
+            <li class="news__link"><a href="{% url 'news_delete' new.id %}">Supprimer</a></li>
+            <li class="news__link"> <a href="{% url 'news_create' %}">Créer une nouvelle</a></li>
+            <div class="clear"></div>
+            {% endif %}
+        </ul>
+
+        {% endfor %}
+        {% endblock %}
+    </section>
+
+</section>

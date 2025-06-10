@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "colors" as c;
+@use "../utils/mixins" as um;
+@use "../utils/functions" as f;
+
+
+%wrapper {
+      // max-width: 1200px;
+      width: min(100% - 2rem, 60rem);
+    //   padding: f.rem(16px);
+      margin: 0 auto;
+}
+
+%card {
+      // max-width: 1200px;
+      width: 31.3%;
+      background-color: map.get(c.$colors, "shadow-color");
+      padding: f.rem(1px);
+      margin: 1%;
+}
+
+.container {
+    @extend %wrapper;
+
+    @include um.responsive(small-screens) {
+        width: 100%;  
+    }
+    @include um.responsive(medium-screens) {
+        width: 90%;  
+    }
+
+    @include um.responsive(large-screens) {
+        width: 80%;  
+    }
+
+}

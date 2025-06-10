@@ -1,0 +1,44 @@
+{% extends '../components/layout.html' %}
+
+{% block content %}
+
+<section class="login">
+
+    <h2 class="login__heading">Connectez-vous</h2>
+
+    <article class="login__article">
+
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form class="login__form" action="{% url 'login' %}" method="post">
+
+            {% csrf_token %}
+            <label for="{{ form.username.id_for_label }}">Nom d'utilisateur</label>
+            {{ form.username }}
+            <label for="{{ form.password.id_for_label }}">Mot de passe</label>
+            {{ form.password }}
+
+            <div class="login__items">
+                <p class="login__item">Se souvenir de moi</p>
+                <p class="login__item">Mot de passe oublié ?</p>
+            </div>
+
+            <button type="submit">Se connecter</button>
+            <!-- <button type="submit"><img class="contact__image" src="/media/img/site/google.svg" alt="contact"
+                    witht="" />Se connecter avec Google</button> -->
+        </form>
+
+    </article>
+    <p class="login__register">Vous n'avez pas de compte ? <a href="{% url 'register' %}">Inscrivez-vous</a></p>
+    <p class="login__conditions">En continuant, vous acceptez nos conditions générales et reconnaissez notre politique
+        de confidentialité.</p>
+</section>
+
+
+{% endblock %}

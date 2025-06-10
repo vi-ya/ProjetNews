@@ -1,0 +1,78 @@
+// @use "variables" as v;
+@use "sass:map";
+
+$font-size :(
+    "font-sb" : 16px,
+    "font-s1" : 52px,
+    "font-s2" : 48px,
+    "font-s3" : 42px,
+    "font-s4" : 36px,
+    "font-s5" : 28px,
+    "font-s6" : 24px,
+    "font-sxxl" : 20px,
+    "font-sxl" : 18px,
+    "font-sl" : 16px,
+    "font-sm" : 15px,
+    "font-ss" : 14px,
+    "font-sxs" : 13px,
+
+);
+
+$base-font-size: map.get($font-size, "font-sb"); 
+
+$font-weight :(
+    "font-wn": 400, // Normal (Regular)
+    "font-wm": 500, // Medium
+    "font-wsb": 600, //	Semi Bold
+    "font-wb": 700,  // Bold
+);
+
+// Font path definition
+$font-path: "/assets/fonts";
+
+// Definition of fonts and their variants
+$fonts: (
+  "archivo": (
+    "family": "'Archivo', sans-serif",
+    "weights": (
+      400: (
+        "normal": (
+          "woff2": "archivo/Archivo-SemiBold.woff2",
+          "woff": "archivo/Archivo-SemiBold.woff",
+          "ttf": "archivo/Archivo-SemiBold.ttf",
+          "svg": "archivo/Archivo-SemiBold.svg#Archivo-SemiBold"
+        ),
+      600: (
+        "italic": (
+          "woff2": "archivo/Archivo-SemiBoldItalic.woff2",
+          "woff": "archivo/Archivo-SemiBoldItalic.woff",
+          "ttf": "archivo/Archivo-SemiBoldItalic.ttf",
+          "svg": "archivo/Archivo-SemiBoldItalic.svg#Archivo-SemiBoldItalic"
+        )
+      )
+    )
+  )
+  ),
+  "roboto": (
+    "family": "'Roboto', sans-serif",
+    "weights": (
+      400: (
+        "normal": (
+          "woff2": "roboto/Roboto-Regular.woff2",
+          "woff": "roboto/Roboto-Regular.woff",
+          "ttf": "roboto/Roboto-Regular.ttf",
+          "svg": "roboto/Roboto-Regular.svg#Roboto-Regular"
+        )
+      ),
+      600: (
+        "normal": (
+          "woff2": "roboto/Roboto-Italic.woff2",
+          "woff": "roboto/Roboto-Italic.woff",
+          "ttf": "roboto/Roboto-Italic.ttf",
+          "svg": "roboto/Roboto-Italic.svg#Roboto-Italic"
+        )
+      )
+    )
+  )
+);
+

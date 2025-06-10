@@ -1,0 +1,95 @@
+@use "sass:map";
+@use "../utils/mixins" as um;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+@use "../utils/functions" as f;
+@use "../components/buttons" as *;
+@use "../globals/decoration" as *;
+
+
+.error {
+   display: flex;
+   flex-direction: column;
+   margin-top: f.rem(34px);
+   padding: f.rem(1px);
+   margin-bottom: f.rem(40px);
+
+
+
+   &__card {
+      justify-content: center;
+      gap: f.rem(20px);
+      margin-top: f.rem(20px);
+      text-align: center;
+      max-width: 50%;
+      margin: f.rem(16px auto);
+
+
+   }
+
+   &__heading {
+      margin-top: f.rem(25px);
+      text-align: center;
+
+      letter-spacing: -.015em;
+      line-height: 1;
+      color: map.get(c.$colors, "secondary-color");
+
+      font: {
+         weight: map.get(t.$font-weight, "font-wb");
+         size: f.rem(map.get(t.$font-size, "font-sxl"));
+      }
+
+      span {
+         color: map.get(c.$colors, "border-color");
+      }
+      @include um.responsive(large-screens) {
+         font: {
+            weight: map.get(t.$font-weight, "font-wb");
+            size: f.rem(map.get(t.$font-size, "font-sxxl"));
+         }
+      }
+
+   }
+  
+   &__span {
+      // margin-top: f.rem(20px);
+      padding: f.rem(20px 0);
+      text-align: center;
+      letter-spacing: -.01em;
+      line-height: 1.25;
+      color: map.get(c.$colors, "danger-color");
+
+      font: {
+         weight: map.get(t.$font-weight, "font-wb");
+         size: f.rem(map.get(t.$font-size, "font-sxl"));
+      }
+
+      @include um.responsive(large-screens) {
+         width: 100%;
+      }
+      
+
+   }
+  
+   &__p {
+      // margin-top: f.rem(20px);
+      padding: f.rem(20px 0);
+      text-align: center;
+      letter-spacing: -.01em;
+      line-height: 1.25;
+      color: map.get(c.$colors, "secondary-color");
+
+      font: {
+         weight: map.get(t.$font-weight, "font-wm");
+         size: f.rem(map.get(t.$font-size, "font-sxl"));
+      }
+
+      @include um.responsive(large-screens) {
+         width: 100%;
+      }
+      
+
+   }
+
+}

@@ -1,0 +1,34 @@
+@use "sass:map";
+@use "../utils/functions" as f;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+
+%button {
+    padding: f.rem(8px);
+    font-weight: map.get(t.$font-weight, "font-wm");
+    background-color: map.get(c.$colors, "primary-color");
+    border: f.rem(2px solid map.get(c.$colors, "border-color"));
+    color: map.get(c.$colors, "light-color");
+    border-radius: f.rem(10px);
+    text-align: center;
+    cursor: pointer;
+    
+
+    &:hover {
+        background-color: map.get(c.$colors, "secondary-color");
+        // color: map.get(c.$colors, "light-color");
+    }
+}
+
+// input:focus {
+//     border: 2px solid deepskyblue;
+//     background: lightcyan;
+//     outline: none;
+//     box-shadow: 0 0 8px rgba(0, 191, 255, 0.5);
+//   }
+
+
+//   input[type="email"]:invalid {
+//     border: 2px solid tomato;
+//     background: mistyrose;
+//   }

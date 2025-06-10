@@ -1,0 +1,33 @@
+{% include '../components/header.html' %}
+{% load static %}
+
+<html lang="fr">
+    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using django"/>
+    <link rel="stylesheet", href="{% static 'style/css/style.css' %}">
+    <link rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <link rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    
+    <title>Projet</title>
+  </head>
+
+  <body >
+    
+
+    <main class="container">
+      {% block content %}
+      {% endblock %}
+    </main>
+    <button id="scroll-top"  aria-label="Retour en haut">Top <i class="ri-arrow-up-line"></i></button>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+  </body>
+
+</html>
+
+{% include '../components/footer.html' %}

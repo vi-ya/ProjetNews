@@ -1,0 +1,23 @@
+{% extends '../components/layout.html' %}
+
+{% block content %}
+
+<section class="news_delete">
+
+    <div class="news_delete__image">
+ </div> 
+    <h1 class="news_delete__heading">Supprimer l'article du site</h1>
+    <p class="news_delete__p">Êtes-vous sûr de vouloir supprimer  le post : "<span>{{news.title}}</span>" <br> <br> Cette action ne pourra pas être annulée. </p>
+    
+    <article class="news_delete__detail">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="news_delete__card">
+            <input type="submit" value="Oui">
+            <a href="{% url 'news'%}">No</a>
+            </div>
+        </form>
+    </article>
+</section>
+{% endblock %}

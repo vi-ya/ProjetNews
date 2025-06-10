@@ -1,0 +1,52 @@
+{% block content %}
+<footer class="footer container">
+
+  <section class="footer__block">
+
+    <article class="footer__block__1">
+      <aside class="footer__block__1__logos">
+        <a class="footer__block__1__logos__link" href="{% url 'home'%}">
+          <img class="footer__block__1__logos__logo" src="/media/img/site/logo.svg" alt="logo" witht="" />
+          <span class="footer__block__1__logos__span">Logo</span>
+        </a>
+      </aside>
+      <aside class="footer__block__1__icons">
+        <!-- <h3 class="footer__block__1__icons__title">Follow Me</h3> -->
+        <a href="#"><img src="/media/img/site/facebook-fill.svg" alt="facebook"></a>
+        <a href="#"><img src="/media/img/site/instagram-line.svg" alt="instagram"></a>
+        <a href="#"><img src="/media/img/site/youtube-line.svg" alt="youtube"></a>
+        <a href="#"><img src="/media/img/site/twitter-x-line.svg" alt="twitter-x"></a>
+        <a href="#"><img src="/media/img/site/linkedin-fill.svg" alt="linkedin"></a>
+      </aside>
+    </article>
+
+    <article class="footer__block__2">
+      <aside class="footer__block__2__details">
+        <h6 class="footer__block__2__details__title">entreprise</h6>
+        <ul class="footer__block__2__details__title__links">
+          <li><a href="{% url 'about' %}">à propos</a></li>
+          <li><a href="{% url 'news' %}">news</a></li>
+          <li><a href="#">carrière</a></li>
+        </ul>
+      </aside>
+    </article>
+
+    <article class="footer__block__3">
+      <aside class="footer__block__3__details">
+        <h6 class="footer__block__3__details__title">support</h6>
+        <ul class="footer__block__3__details__title__links">
+          <li><a href="#">services</a></li>
+          <li><a href="#">conditions générales</a></li>
+          <li><a href="#">politique de confidentialité</a></li>
+        </ul>
+      </aside>
+    </article>
+  </section> 
+  <section class="footer__copyright">
+      <p>Copyright &copy; Tous droits réservés à
+        <a href="#" target="_blank">Entreprise</a>
+      </p>
+    </section>
+
+</footer>
+{% endblock %}

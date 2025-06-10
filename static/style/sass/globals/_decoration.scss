@@ -1,0 +1,75 @@
+@use "sass:map";
+@use "../utils/functions" as f;
+@use "colors" as c;
+@use "typography" as t;
+@use "../components/buttons";
+@use "../utils/mixins" as um;
+
+
+a {
+    // font-weight: map.get(t.$font-weight, "font-wsb");
+    color: map.get(c.$colors, "primary-color");
+    cursor: pointer;
+
+    &:hover {
+        color: map.get(c.$colors, "secondary-color");
+        cursor: pointer;
+    }
+
+    &--alert {
+        color: map.get(c.$colors, "error-color");
+    }
+
+    &--succes {
+        color: map.get(c.$colors, "succes-color");
+    }
+}
+
+
+.alert {
+    padding: f.rem(12px);
+    border: f.rem(1px solid transparent);
+    border-radius: f.rem(10px);
+    font-weight: bold;
+    font-size: f.rem(map.get(t.$font-size, "font-ss"));
+    text-align: center;
+
+    // successful or positive action
+    &.alert-success {
+        margin-bottom: f.rem(15px);
+        color: map.get(c.$colors, "success-color");
+        background-color: map.get(c.$colors, "background-color");
+        @include um.responsive(medium-screens) {
+            margin-bottom: 0;
+        }
+     
+    }
+    // dangerous or negative action, error
+    &.alert-danger,
+    &.alert-error {
+        color: map.get(c.$colors, "danger-color");
+    }
+    // warning requiring the user's attention
+    &.alert-warning {
+        color: map.get(c.$colors, "warning-color");
+    }
+
+    // neutral or complementary information
+    &.alert-info {
+        color: map.get(c.$colors, "emphasis-color");
+    }
+}
+
+.error_index {
+    padding-left: 0;
+}
+
+.messages_index {
+    margin-bottom: 1em;
+}
+
+.ri-arrow-right-up-line{
+    font-size: f.rem(map.get(t.$font-size, "font-sxs"));
+    color: map.get(c.$colors, "border-color");
+
+}

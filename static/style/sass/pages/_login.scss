@@ -1,0 +1,156 @@
+@use "sass:map";
+@use "../utils/mixins" as um;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+@use "../globals/decoration";
+@use "../utils/functions" as f;
+@use "../components/buttons";
+
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: map-get(map-get(t.$fonts, "roboto"), "family");
+    margin: 5% auto;
+
+    &__heading {
+        line-height: f.rem(62px);
+        letter-spacing: f.rem(1px);
+        margin: f.rem(30px 0);
+        text-align: center;
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wsb");
+            size: f.rem(map.get(t.$font-size, "font-s1"));
+        }
+
+        color: map.get(c.$colors, "secondary-color");
+    }
+
+    &__article {
+        padding: f.rem(5px);
+        border-radius: f.rem(8px);
+        box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    &__form {
+        background-color: map.get(c.$colors, "light-color");
+        display: flex;
+        flex-direction: column;
+        gap: f.rem(16px);
+        padding: f.rem(30px);
+        text-align: left;
+        justify-content: center;
+
+        label {
+           
+            font-family: map-get(map-get(t.$fonts, "archivo"), "family");
+            text-align: left;
+            color: #374151;
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wn");
+                size: f.rem(map.get(t.$font-size, "font-sl"));
+            }
+
+            color: map.get(c.$colors, "dark-color");
+
+            @include um.responsive(medium-screens) {}
+        }
+
+        input {
+            background-color: map.get(c.$colors, "background-color");
+            font-family: map-get(map-get(t.$fonts, "roboto"), "family");
+            line-height: f.rem(24px);
+            text-align: center;
+            width: 100%;
+            padding: f.rem(12px);
+            margin-top: f.rem(12px);
+            border: f.rem(1px solid #e2e8f0);
+            border-radius: f.rem(6px);
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wn");
+                size: f.rem(map.get(t.$font-size, "font-sl"));
+            }
+
+            color: map.get(c.$colors, "dark-color");
+        }
+
+        button {
+            width: 100%;
+            line-height: f.rem(24px);
+            padding: f.rem(12px);
+            border: none;
+            border-radius: f.rem(5px);
+            @extend %button;
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wsb");
+                size: f.rem(map.get(t.$font-size, "font-sl"));
+            }
+        }
+
+        button:last-child {
+            background-color: map.get(c.$colors, "neutral-color");
+            color: map.get(c.$colors, "primary-color");
+            display: flex;
+            justify-content: center;
+            gap: f.rem(12px);
+            font-size: f.rem(map.get(t.$font-size, "font-ss"));
+
+            img {
+                margin: 0;
+            }
+        }
+    }
+
+    &__register,
+    &__conditions {
+        padding-top: 10px;
+        margin-bottom: f.rem(24px);
+        line-height: f.rem(22px);
+        text-align: center;
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wn");
+            size: f.rem(map.get(t.$font-size, "font-ss"));
+        }
+
+        color: map.get(c.$colors, "dark-color");
+
+        @include um.responsive(large-screens) {
+            line-height: f.rem(30px);
+            font-size: f.rem(map.get(t.$font-size, "font-ss"));
+        }
+
+    }
+
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        gap: f.rem(40px);
+        cursor: pointer;
+    }
+
+    &__item {
+        line-height: f.rem(22px);
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wn");
+            size: f.rem(map.get(t.$font-size, "font-ss"));
+        }
+
+        color: map.get(c.$colors, "secondary-color");
+
+        @include um.responsive(large-screens) {
+            line-height: f.rem(30px);
+        }
+
+    }
+    
+}
+
+

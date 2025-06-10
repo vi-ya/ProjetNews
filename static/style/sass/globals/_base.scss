@@ -1,0 +1,106 @@
+@use "sass:map";
+@use "typography" as t;
+@use "colors" as c;
+@use "variables" as v;
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+@use "../components/buttons";
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 2.5vm;
+   
+}
+
+body { 
+    font-family: map-get(map-get(t.$fonts, "roboto"), "family"), Georgia, 'Times New Roman', Times, serif;
+    
+}
+
+#scroll-top{
+    display: none;
+    position: fixed;
+    bottom: f.rem(80px);
+    right: f.rem(20px);
+    border-radius: f.rem(50px);
+    @extend %button;
+}
+
+
+
+a {
+    text-decoration: none;
+    cursor: auto;
+}
+
+ul li {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font: {
+    family: map-get(map-get(t.$fonts, "archivo"), "family"), Arial, Helvetica, sans-serif;
+    weight: map.get(t.$font-weight, "font-wsb");
+    }
+    color: map.get(c.$colors, "secondary-color");
+
+}
+
+h1 {
+    font-size: f.rem(map.get(t.$font-size, "font-s1"));
+}
+
+h2 {
+    font-size: f.rem(map.get(t.$font-size, "font-s2"));
+}
+
+h3 {
+    font-size: f.rem(map.get(t.$font-size, "font-s3"));
+}
+
+h4 {
+    font-size: f.rem(map.get(t.$font-size, "font-s4"));
+}
+
+h5 {
+    font-size: f.rem(map.get(t.$font-size, "font-s5"));
+}
+
+h6 {
+    font-size: f.rem(map.get(t.$font-size, "font-s6"));
+}
+
+p {
+    font: {
+    family: map-get(map-get(t.$fonts, "roboto"), "family"), Arial, Helvetica, sans-serif;
+    size: f.rem(map.get(t.$font-size, "font-sl"));
+    weight: map.get(t.$font-weight, "font-wn");
+    }
+    color: map.get(c.$colors, "secondary-color");
+    line-height: f.rem(22.4px);
+    text-align: justify;
+}
+
+.credits { 
+    font: {
+    family: map-get(map-get(t.$fonts, "roboto"), "family"), 'Courier New', Courier, monospace;
+    style: italic;
+    weight: map.get(t.$font-weight, "font-wn");
+    size: f.rem(map.get(t.$font-size, "font-sxs"));
+    }
+    word-spacing: f.rem(16px);
+}
+
+img {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,144 @@
+@use "sass:map";
+@use "../utils/mixins" as um;
+@use "../utils/functions" as f;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+
+
+.footer {
+
+    background-color: map.get(c.$colors, "shadow-color");
+    color: map.get(c.$colors, "light-color");
+    text-align: center;
+    padding: f.rem(50px 0 40px);
+    
+
+    &__block {
+        display: flex;
+        flex-direction: column;
+        gap: f.rem(20px);
+
+        @include um.responsive(medium-screens) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
+
+    &__block__1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: f.rem(30px);
+
+        &__logos {
+            gap: f.rem(8px);
+            align-items: center;
+
+            &__link {
+                display: flex;
+                align-items: center;
+                gap: f.rem(5px);
+
+                &__logo {
+                    width: f.rem((50)px);
+
+                    @include um.responsive(medium-screens) {
+                        width: f.rem(60px);
+
+                        float: left;
+                    }
+                }
+
+                &__span {
+                    font-size: f.rem(map.get(t.$font-size, "font-md"));
+                    font-weight: bold;
+                    color: map.get(c.$colors, "primary-color");
+                }
+
+            }
+
+
+        }
+
+        &__icons {
+            display: flex;
+            gap: f.rem(12px);
+
+            a {
+                display: inline-block;
+                width: f.rem(24px);
+
+                img {
+                    width: 100%;
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+
+    &__block__2,
+    &__block__3 {
+        &__details {
+            text-transform: capitalize;
+            line-height: f.rem(35px);
+
+            @include um.responsive(medium-screens) {
+                text-align: left;
+            }
+
+            &__title {
+                font-size: f.rem(map.get(t.$font-size, "font-sxxl"));
+                font-weight: map.get(t.$font-weight, "font-wsb");
+                margin-bottom: f.rem(15px);
+                color: map.get(c.$colors, "primary-color");
+            }
+
+            &__title__links {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    margin-bottom: f.rem(5px);
+
+                    a {
+                        color: map.get(c.$colors, "secondary-color");
+                        text-decoration: none;
+                        font-size: f.rem(map.get(t.$font-size, "font-ss"));
+                        font-weight: map.get(t.$font-weight, "font-wn");
+
+                        &:hover {
+                            color: map.get(c.$colors, "primary-color");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        width: 100%;
+        margin-top: f.rem(20px);
+        font-size: f.rem(map.get(t.$font-size, "font-sm"));
+
+        p {
+            text-align: center;
+            padding-block: f.rem(40px 25px);
+
+            a {
+                color: map.get(c.$colors, "primary-color");
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+
+    }
+}
+

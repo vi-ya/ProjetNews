@@ -1,0 +1,39 @@
+{% extends '../components/layout.html' %}
+
+{% block content %}
+<section class="news_create">
+    <div class="news_create__image">
+    </div>
+
+    <h1 class="news_create__heading">Publication d'un article</h1>
+    
+    <article class="news_create__detail">
+        <form class="news_create__detail__form" action="" method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                <ul class="error_index">
+                    {% for error in field.errors %}
+                    <li class="alert alert-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <p class="news_create__p">Ce post sera diffusé. <br> <br>
+            Les membres de l'équipe pourront le modifier, le republier ou
+            effacer les changements. </p>
+    
+        <div class="news_create__card">
+            <button type="submit">Confirmer</button>
+            <a href="{% url 'news'%}">Annuler</a>
+        </div>  
+     </form>
+    </article>
+</section>
+{% endblock %}

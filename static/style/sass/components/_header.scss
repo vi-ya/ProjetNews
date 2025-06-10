@@ -1,0 +1,149 @@
+@use "sass:map";
+@use "../utils/functions" as f;
+@use "../utils/mixins" as um;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+@use "../components/buttons";
+
+
+.header {
+    background-color: map.get(c.$colors, "light-color");
+    padding: f.rem(15px 0px 5px);
+    text-align: center;
+    font-weight: map.get(t.$font-weight, "font-wsb");
+    width: 100%;
+    
+
+    @include um.responsive(large-screens) {
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    &__nav {
+        width: 50%;
+        margin: auto;
+
+        @include um.responsive(medium-screens) {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: f.rem(map.get(t.$font-size, "font-sl"));
+        }
+    }
+
+    &__logos {
+        padding: f.rem(5px);
+    }
+
+    &__logos__link {
+        margin-bottom: f.rem(16px);
+
+        @include um.responsive(medium-screens) {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        a {
+            align-items: center;
+        }
+    }
+
+    &__logos__logo {
+        width: f.rem(45px);
+
+        @include um.responsive(medium-screens) {
+            width: f.rem(64px);
+            padding: f.rem(4px);
+            float: left;
+        }
+    }
+
+    &__logos__span {
+        color: map.get(c.$colors, "primary-color");
+    }
+
+    &__users__menu {
+        align-items: center;
+    }
+   
+
+    form {
+        margin: f.rem(16px);
+
+        @include um.responsive(medium-screens) {
+            margin: 0
+        }
+
+    }
+
+    input {
+        width: 100%;
+        margin: auto;
+        padding: f.rem(14px);
+        font-weight: map.get(t.$font-weight, "font-wsb");
+        font-size: f.rem(map.get(t.$font-size, "font-sl"));
+        @extend %button;
+
+        @include um.responsive(large-screens) {
+            border: none;
+            border-radius: f.rem(15px);
+        }
+    }
+
+    &__users__menu,
+    &__links__menu {
+        font-weight: bold;
+       
+
+        a {
+            display: block;
+            padding: 1em;
+            font-weight: map.get(t.$font-weight, "font-wsb");
+            font-size: f.rem(map.get(t.$font-size, "font-sl"));
+            background-color: map.get(c.$colors, "background-color");
+            color: map.get(c.$colors, "primary-color");
+            margin: 1em;
+            border: f.rem(1px solid map.get(c.$colors, "border-color"));
+            border-radius: f.rem(10px);
+
+            @include um.responsive(medium-screens) {
+                border: none;
+                background-color: transparent;
+                padding: 0;
+            }
+        }
+
+        @include um.responsive(medium-screens) {
+            display: flex;
+            gap: 13px;
+        }
+    }
+
+    &__contact {
+
+        a {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        button {
+            width: 100%;
+            padding: f.rem(14px);
+            font-weight: map.get(t.$font-weight, "font-wsb");
+            font-size: f.rem(map.get(t.$font-size, "font-sl"));
+            @extend %button;
+
+            @include um.responsive(large-screens) {
+                border: none;
+                border-radius: f.rem(15px);
+            }
+        }
+    }
+
+}

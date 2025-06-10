@@ -1,0 +1,54 @@
+@use "sass:map";
+@use "../globals/variables" as v;
+@use "../globals/typography" as t;
+@use "../utils/functions" as f;
+ 
+// mediaquery
+@mixin responsive($width){
+    
+    @if $width == small-screens {
+        @media only screen and (min-width: map.get(v.$width, "small-screens")) {
+            @content;
+            }
+        }
+    @else if $width == medium-screens {
+        @media only screen and (min-width: map.get(v.$width, "medium-screens")) {
+            @content; }
+        }
+    @else if $width == large-screens {
+        @media only screen and (min-width: map.get(v.$width, "large-screens")) {
+            @content; }
+        }
+}  
+
+// Mixin to automatically generate @font-faces
+@mixin generate-font-faces($fonts, $font-path) {
+    @each $font, $data in $fonts { 
+      $family: map-get($data, "family");
+  
+      @each $weight, $styles in map-get($data, "weights") {
+        @each $style, $files in $styles {
+          @font-face {
+            font-family: #{$family};
+            src: url("#{$font-path}/#{map-get($files, 'woff2')}") format("woff2"),
+                 url("#{$font-path}/#{map-get($files, 'woff')}") format("woff"),
+                 url("#{$font-path}/#{map-get($files, 'ttf')}") format("truetype"),
+                 url("#{$font-path}/#{map-get($files, 'svg')}") format("svg");
+            font-weight: #{$weight};
+            font-style: #{$style};
+            font-display: swap;
+          }
+        }
+      }
+    }
+  }
+  
+  // Mixin integration
+  @include generate-font-faces(t.$fonts, t.$font-path);
+
+
+@mixin title-style {
+  weight: map.get(t.$font-weight, "font-wb");
+  text-transform: uppercase;
+  letter-spacing: f.rem(1px);
+}

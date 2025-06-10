@@ -1,0 +1,43 @@
+{% extends '../components/layout.html' %}
+
+{% block content %}
+
+<section class="news_update">
+    <div class="news_update__image">
+    </div>
+
+    <h1 class="news_update__heading">Modifier un article</h1>
+
+    <article class="news_update__detail">
+
+
+        <form class="news_update__detail__form" action="" method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                <ul class="error_index">
+                    {% for error in field.errors %}
+                    <li class="alert alert-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+
+            <p class="news_update__p">Modifications non sauvegardées <br><br>Voulez-vous enregistrer ou annuler les
+                modifications ?</p>
+
+            <div class="news_update__card">
+                <button type="submit">Sauvegarder</button>
+                <a href="{% url 'news'%}">Annuler</a>
+            </div>
+
+        </form>
+    </article>
+</section>
+{% endblock %}

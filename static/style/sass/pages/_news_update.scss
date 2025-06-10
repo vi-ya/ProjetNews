@@ -1,0 +1,193 @@
+@use "sass:map";
+@use "../utils/mixins" as um;
+@use "../globals/colors" as c;
+@use "../globals/typography" as t;
+@use "../utils/functions" as f;
+@use "../components/buttons" as *;
+@use "../globals/decoration" as *;
+
+
+
+.news_update {
+    display: flex;
+    flex-direction: column;
+    margin-top: f.rem(34px);
+    padding: f.rem(1px);
+    margin-bottom: f.rem(40px);
+
+    &__image {
+
+        background-image: url("/media/img/site/update.jpg");
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        padding: f.rem(80px 0);
+        opacity: 0.2;
+        background-color: rgb(230, 230, 240, 0.5);
+        border: 1px solid black;
+        width: 643px;
+        max-width: 100%;
+        margin: auto;
+        height: 198px;
+        border-radius: 5px;
+    }
+
+
+    &__heading {
+        margin-top: f.rem(20px);
+        text-align: center;
+        letter-spacing: -.015em;
+        line-height: 1;
+        color: map.get(c.$colors, "secondary-color");
+        padding: f.rem(20px);
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wb");
+            size: f.rem(map.get(t.$font-size, "font-s4"));
+        }
+
+        span {
+            color: map.get(c.$colors, "border-color");
+        }
+
+    }
+
+    &__p {
+        // margin-top: f.rem(20px);
+        padding: f.rem(20px 0);
+        text-align: center;
+        letter-spacing: -.01em;
+        line-height: 1.25;
+        color: map.get(c.$colors, "secondary-color");
+
+        font: {
+            weight: map.get(t.$font-weight, "font-wm");
+            size: f.rem(map.get(t.$font-size, "font-sxl"));
+        }
+
+        @include um.responsive(large-screens) {
+            // text-align: left;
+            width: 100%;
+        }
+    }
+
+    &__card {
+        display: flex;
+        justify-content: center;
+        gap: f.rem(20px);
+        margin-top: f.rem(20px);  
+
+        button {
+            padding: f.rem(20px 20px);
+            border-radius: f.rem(5px);
+            border: none;
+            text-align: center;
+            background-color: map.get(c.$colors, "warning-color");
+            color: map.get(c.$colors, "neutral-color");
+            @extend %button;
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wsb");
+                size: f.rem(map.get(t.$font-size, "font-ss"));
+            }
+        }
+
+        a {
+            padding: f.rem(20px 20px);
+            border: f.rem(1px solid map.get(c.$colors, "border-color"));
+            border-radius: f.rem(5px);
+            background-color: transparent;
+            color: map.get(c.$colors, "border-color");
+            @extend %button;
+
+            font: {
+                weight: map.get(t.$font-weight, "font-wsb");
+                size: f.rem(map.get(t.$font-size, "font-ss"));
+            }
+        }
+
+    }
+
+    &__detail {
+        max-width: 50%;
+        margin: f.rem(16px auto);
+
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: f.rem(8px);
+            margin: auto;
+
+            @include um.responsive(medium-screens) {
+                // flex-direction: row;
+                // justify-content: center;
+                gap: f.rem(10px 0);
+            }            
+
+            // input, textarea {
+            //     width: 100%;
+            // }
+            label {
+                margin-top: f.rem(16px);           
+                font-family: map-get(map-get(t.$fonts, "archivo"), "family");
+                text-align: left;
+                color: #374151;
+                line-height: 1.5rem;
+    
+                font: {
+                    weight: map.get(t.$font-weight, "font-wn");
+                    size: f.rem(map.get(t.$font-size, "font-sl"));
+                }
+    
+                color: map.get(c.$colors, "dark-color");
+    
+                @include um.responsive(medium-screens) {}
+
+                
+
+                
+            }
+            a {
+                color: map.get(c.$colors, "primary-color");
+                    font: {
+                        weight: map.get(t.$font-weight, "font-wn");
+                        size: f.rem(map.get(t.$font-size, "font-sxs"));
+                    }
+                }
+
+            #text {
+                display: none;
+            }
+            
+    
+            textarea, select, input[type=checkbox], input[type=file], input[type=text], input[type=url] {
+                background-color: map.get(c.$colors, "background-color");
+                font-family: map-get(map-get(t.$fonts, "roboto"), "family");
+                line-height: f.rem(24px);
+                text-align: left;
+                width: 100%;
+                padding: f.rem(12px);
+                margin: f.rem(12px 0);
+                border: f.rem(1px solid #e2e8f0);
+                border-radius: f.rem(6px);
+    
+                font: {
+                    weight: map.get(t.$font-weight, "font-wn");
+                    size: f.rem(map.get(t.$font-size, "font-sl"));
+                }
+    
+                color: map.get(c.$colors, "dark-color");
+            }
+            input[type=checkbox]{
+                width: 10%;
+                
+            }
+           
+    
+        
+            
+        }
+ 
+    }
+}

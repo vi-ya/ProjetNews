@@ -1,0 +1,51 @@
+{% block content %}
+<header class="header container">
+
+    <nav class="header__nav">
+
+        <section class="header__logos">
+
+            <a class="header__logos__link" href="{% url 'home'%}">
+                <img class="header__logos__logo" src="/media/img/site/logo.svg" alt="logo" witht="" />
+                <span class="header__logos__span">Logo</span>
+            </a>
+        </section>
+
+        <section class="header__links">
+            <ul class="header__links__menu">
+                <li><a class="header__link__menu" href="{% url 'home' %}">Home</a></li>
+                <li><a class="header__link__menu" href="{% url 'about' %}">À propos</a></li>
+                <li><a class="header__link__menu" href="{% url 'news' %}">News</a></li>
+
+            </ul>
+        </section>
+
+        <section class="header__users">
+
+            <ul class="header__users__menu">
+                {% if user.is_authenticated %}
+                <li class="header__users__menu">
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+
+                        <input type="submit" value="Déconnexion">
+
+                    </form>
+                </li> {% else %}
+                <li class="header__users__menu"><a href="{% url 'register' %}">Inscription</a></li>
+                <li class="header__users__menu"><a href="{% url 'login' %}">Connexion</a>
+                    {% endif %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if 'success' in message.tags %}
+                <li class="alert alert-success">{{ message }}</li>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                <li class="header__contact"><a href="{% url 'contact' %}"><button>Contact</button></a></li>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</header>
+{% endblock %}

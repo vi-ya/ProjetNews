@@ -1,0 +1,207 @@
+{% extends '../components/layout.html' %}
+
+{% block content %}
+<section class="home">
+
+  <h1 class="home__heading__h">Actualités et plus encore</h1>
+  <p class="home__heading__p">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+     Quis, quas omnis facere cumque
+    architecto. 
+
+  <div class="home__top">
+
+    <!-- Première section : Article principal -->
+    <article class="home__article home__article--main">
+      <h2 class="home__article__headline">News</h2>
+      {% with home_list.first as new %}
+      {% if new %}
+      {% if new.photo %}
+      <img class="home__article__img" src="{{ new.photo.url }}" alt="{{ new.name }}">
+      {% else %}
+      <img class="home__article__img" src="/media/img/news/default.jpg" alt="Image par défaut">
+      {% endif %}
+
+      <h6 class="home__article__subtitle">
+        <a class="home__article__url" href="{% url 'news_detail' new.id %}">{{ new.title }}<i class="ri-arrow-right-up-line"></i></a>
+      </h6>
+      <p class="home__article__section">{{ new.section }}</p>
+      <p class="home__article__description">{{ new.description|truncatechars:250 }}</p>
+      <section class="home__article__block">
+        <p class="home__article__block__author">{{ new.author }}</p>
+        <p class="home__article__block__date">{{ new.date }}</p>
+      </section>
+
+      {% endif %}
+      {% endwith %}
+    </article>
+
+    <!-- Deuxième section : 3 articles secondaires -->
+    <article class="home__article home__article--secondary">
+      <h1 class="home__heading__p">Dernières actualités</h1>
+      {% for new in home_list|slice:"1:4" %}
+      {% if new.photo %}
+      <img class="home__article__img" src="{{ new.photo.url }}" alt="{{ new.name }}">
+      {% else %}
+      <img class="home__article__img" src="/media/img/news/default.jpg" alt="Image par défaut">
+      {% endif %}
+
+      <h6 class="home__article__subtitle">
+        <a class="home__article__url" href="{% url 'news_detail' new.id %}">{{ new.title }}<i class="ri-arrow-right-up-line"></i></a>
+        <p class="home__article__section">{{ new.section }}</p>
+        <section class="home__article__block">
+          <p class="home__article__block__author">{{ new.author }}</p>
+          <p class="home__article__block__date">{{ new.date }}</p>
+        </section>
+      </h6>
+      {% endfor %}
+    </article>
+
+  </div>
+
+  <div class="home__bottom">
+
+    <h1 class="home__heading__h">Sections</h1>
+
+    <!-- Troisième section : Articles filtrés par section -->
+    <article class="home__article home__article--filtered">
+
+      <h3 class="home__article__title">Informations</h3>
+      <section class="home__article__list">
+        {% for new in section_view_informations %}
+        {% if new.photo %}
+        <article class="home__article__item">
+          <img class="home__article__img" src="{{ new.photo.url }}" alt="{{ new.name }}">
+          {% else %}
+          <img class="home__article__img" src="/media/img/news/default.jpg" alt="Image par défaut">
+          {% endif %}
+          <h6 class="home__article__subtitle">
+            <a class="home__article__url" href="{% url 'news_detail' new.id %}">{{ new.title }}<i class="ri-arrow-right-up-line"></i></a>
+          </h6>
+          <p class="home__article__description">{{ new.description | truncatechars:80 }}</p>
+          <section class="home__article__block">
+            <p class="home__article__block__author">{{ new.author }}</p>
+            <p class="home__article__block__date">{{ new.date }}</p>
+          </section>
+          <!-- <p class="home__article__section">{{ new.section }}</p> -->
+        </article>
+        {% endfor %}
+      </section>
+
+    </article>
+    <article class="home__article home__article--filtered">
+
+      <h3 class="home__article__title">Ressources</h3>
+      <section class="home__article__list">
+        {% for new in section_view_ressources %}
+        {% if new.photo %}
+        <article class="home__article__item">
+          <img class="home__article__img" src="{{ new.photo.url }}" alt="{{ new.name }}">
+          {% else %}
+          <img class="home__article__img" src="/media/img/news/default.jpg" alt="Image par défaut">
+          {% endif %}
+          <h6 class="home__article__subtitle">
+            <a class="home__article__url" href="{% url 'news_detail' new.id %}">{{ new.title }}<i class="ri-arrow-right-up-line"></i></a>
+          </h6>
+          <p class="home__article__description">{{ new.description | truncatechars:80 }}</p>
+          <section class="home__article__block">
+            <p class="home__article__block__author">{{ new.author }}</p>
+            <p class="home__article__block__date">{{ new.date }}</p>
+          </section>
+          <!-- <p class="home__article__section">{{ new.section }}</p> -->
+        </article>
+        {% endfor %}
+      </section>
+
+    </article>
+
+    <article class="home__article home__article--filtered">
+
+      <h3 class="home__article__title">Événements</h3>
+      <section class="home__article__list">
+        {% for new in section_view_evenements %}
+        {% if new.photo %}
+        <article class="home__article__item">
+          <img class="home__article__img" src="{{ new.photo.url }}" alt="{{ new.name }}">
+          {% else %}
+          <img class="home__article__img" src="/media/img/news/default.jpg" alt="Image par défaut">
+          {% endif %}
+          <h6 class="home__article__subtitle">
+            <a class="home__article__url" href="{% url 'news_detail' new.id %}">{{ new.title }}<i class="ri-arrow-right-up-line"></i></a>
+          </h6>
+          <p class="home__article__description">{{ new.description | truncatechars:80 }}</p>
+          <section class="home__article__block">
+            <p class="home__article__block__author">{{ new.author }}</p>
+            <p class="home__article__block__date">{{ new.date }}</p>
+          </section>
+          <!-- <p class="home__article__section">{{ new.section }}</p> -->
+        </article>
+        {% endfor %}
+      </section>
+
+    </article>
+
+    <article class="home__article home__article--filtered">
+
+      <h3 class="home__article__title">Opportunités</h3>
+      <section class="home__article__list">
+        {% for new in section_view_opportunites %}
+        {% if new.photo %}
+        <article class="home__article__item">
+          <img class="home__article__img" src="{{ new.photo.url }}" alt="{{ new.name }}">
+          {% else %}
+          <img class="home__article__img" src="/media/img/news/default.jpg" alt="Image par défaut">
+          {% endif %}
+          <h6 class="home__article__subtitle">
+            <a class="home__article__url" href="{% url 'news_detail' new.id %}">{{ new.title }}<i class="ri-arrow-right-up-line"></i></a>
+          </h6>
+          <p class="home__article__description">{{ new.description | truncatechars:80 }}</p>
+          <section class="home__article__block">
+            <p class="home__article__block__author">{{ new.author }}</p>
+            <p class="home__article__block__date">{{ new.date }}</p>
+          </section>
+          <!-- <p class="home__article__section">{{ new.section }}</p> -->
+        </article>
+        {% endfor %}
+      </section>
+
+    </article>
+
+    <article class="home__article home__article--filtered">
+
+      <h3 class="home__article__title">Profils</h3>
+      <section class="home__article__list">
+        {% for new in section_view_profiles %}
+        {% if new.photo %}
+        <article class="home__article__item">
+          <img class="home__article__img" src="{{ new.photo.url }}" alt="{{ new.name }}">
+          {% else %}
+          <img class="home__article__img" src="/media/img/news/default.jpg" alt="Image par défaut">
+          {% endif %}
+          <h6 class="home__article__subtitle">
+            <a class="home__article__url" href="{% url 'news_detail' new.id %}">{{ new.title }}<i class="ri-arrow-right-up-line"></i></a>
+          </h6>
+          <p class="home__article__description">{{ new.description | truncatechars:80 }}</p>
+          <section class="home__article__block">
+            <p class="home__article__block__author">{{ new.author }}</p>
+            <p class="home__article__block__date">{{ new.date }}</p>
+          </section>
+          <!-- <p class="home__article__section">{{ new.section }}</p> -->
+        </article>
+        {% endfor %}
+      </section>
+
+    </article>
+    <!-- Quatrième section : Newsletter -->
+    <article class="home__article home__article--newsletter">
+      <h3 class="home__article__headline_h">S'abonner à notre newsletter</h3>
+      <p class="home__article__p">Restez informé des dernières tendances</p>
+      <form class="home__article__form" action="" method="get" target="_blank">
+        <input type="email" name="EMAIL" placeholder="Email" required>
+        <input type="text" name="FirstName" placeholder="Nom" required>
+        <button type="submit">S'abonner maintenant</button>
+      </form>
+    </article>
+  </div>
+
+</section>
+{% endblock %}
