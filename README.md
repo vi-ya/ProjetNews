@@ -17,7 +17,12 @@ A website built with Django that centralizes news articles and offers a user exp
   - [Collaboration](#collaboration)
   - [License](#license)
   - [Screenshot](#screenshot)
-      -[Home page](#home-page)
+      - [Home page](#home-page)
+      - [Login page](#login-page)
+      - [Register page](#register-page)
+      - [Contact page](#contact-page)
+      - [News page](#news-page)
+      - [News list modification pages](#news-list-modification-pages)
 
 ### General Info
 
