@@ -17,6 +17,7 @@ A website built with Django that centralizes news articles and offers a user exp
   - [Collaboration](#collaboration)
   - [License](#license)
   - [Screenshot](#screenshot)
+      -[Home page](#home-page)
 
 ### General Info
 
@@ -51,7 +52,7 @@ It includes custom static pages (Contact, About, custom 404), a secure user area
 Clone the repository:
 
 ```html
-git clone https://github.com/YAVI-DEV/ProjetNews.git
+git clone https://github.com/vi-ya/ProjetNews.git
 cd ProjetNews
 ```
 
@@ -130,46 +131,46 @@ Feel free to use, modify, and distribute it as long as you include the original 
 
 <div align="center">
 <h4>Home page</h4>
-<img  src="" alt="news_home" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_home.jpg" alt="news_home" >
 </div>
 
 <div align="center">
 <h4>Login page</h4>
-<img  src="" alt="news_login" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_login.png" alt="news_login" >
 </div>
 
 <div align="center">
 <h4>Register page</h4>
-<img  src="" alt="news_register" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_register.png" alt="news_register" >
 </div>
 
 <div align="center">
 <h4>Contact page</h4>
-<img  src="" alt="news_contact">
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_contact.jpg" alt="news_contact">
 </div>
 
 <div align="center">
 <h4>News page</h4>
-<img  src="" alt="news_list" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_list.png" alt="news_list" >
 </div>
 <div align="center">
-<img  src="" alt="news_list_mobile" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_list_mobile.png" alt="news_list_mobile" >
 </div>
 
 <div align="center">
 <h4>News list modification pages</h4>
-<img  src="" alt="news_list_modify" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_list_modify.png" alt="news_list_modify" >
 </div>
 <div align="center">
-<img  src="" alt="news_detail" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_detail.png" alt="news_detail" >
 </div>
 <div align="center">
-<img  src="" alt="news_delete" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_delete.png" alt="news_delete" >
 </div>
 <div align="center">
-<img  src="" alt="news_create" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_create.png" alt="news_create" >
 </div>
 <div align="center">
-<img  src="" alt="news_update" >
+<img  src="https://github.com/vi-ya/ProjetNews/blob/dc8d2f7365de267b8f09b8384431c3170294cdf2/resources/images/news_update.jpg" alt="news_update" >
 </div>
 
